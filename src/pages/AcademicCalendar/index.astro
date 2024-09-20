@@ -9,7 +9,9 @@ interface AcademicEvent {
 
 // 학사 일정 데이터를 가져오는 함수
 async function fetchAcademicCalendar(): Promise<AcademicEvent[]> {
-    const response = await fetch('https://open.neis.go.kr/hub/SchoolSchedule?KEY=4e1af35dc1954eb8aaf573eff8653c43&Type=json&ATPT_OFCDC_SC_CODE=J10&SD_SCHUL_CODE=7531381&AA_FROM_YMD=20240301&AA_TO_YMD=20241231&pSize=365');
+    const currentYear = new Date().getFullYear();
+    const fromDate = `${currentYear}0301`;
+    const response = await fetch(`https://open.neis.go.kr/hub/SchoolSchedule?KEY=4e1af35dc1954eb8aaf573eff8653c43&Type=json&ATPT_OFCDC_SC_CODE=J10&SD_SCHUL_CODE=7531381&AA_FROM_YMD=${fromDate}&AA_TO_YMD=20241231&pSize=365`);
     const data = await response.json();
     return data.SchoolSchedule[1].row;
 }
@@ -26,7 +28,7 @@ const academicCalendar: AcademicEvent[] = await fetchAcademicCalendar();
 
 <Layout title="Academic Calendar">
     <body class="bg-white text-gray-900">
-        <h1 class="text-3xl font-bold text-center my-8 text-white">Academic Calendar</h1>
+        <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">학사일정</h1>
 
         <div class="max-w-2xl mx-auto mb-4 text-center">
             {Array.from({ length: 12 }).map((_, i) => (
@@ -42,7 +44,7 @@ const academicCalendar: AcademicEvent[] = await fetchAcademicCalendar();
         <ul class="max-w-2xl mx-auto">
             {academicCalendar.map((event) => (
                     <li
-                            class="bg-white shadow-md rounded-lg p-4 mb-4"
+                            class="bg-white dark:bg-black shadow-md rounded-lg p-4 mb-4"
                             data-month={new Date(event.AA_YMD.slice(0, 4) + '-' + event.AA_YMD.slice(4, 6) + '-' + event.AA_YMD.slice(6, 8)).getMonth() + 1}
                     >
                         <h5 class="text-lg font-semibold">{formatDate(event.AA_YMD)}</h5>
