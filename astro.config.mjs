@@ -16,4 +16,5 @@ export default defineConfig({
   adapter: cloudflare({
     imageService: 'passthrough'
   }),
+  site: 'https://kmhs.info',
 });
