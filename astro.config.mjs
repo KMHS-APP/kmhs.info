@@ -14,7 +14,7 @@ export default defineConfig({
   integrations: [icon(), react(), tailwind()],
   output: 'server',
   adapter: cloudflare({
-    imageService: 'passthrough'
+    imageService: 'cloudflare'
   }),
   site: 'https://kmhs.info',
 });
