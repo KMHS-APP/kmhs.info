@@ -5,7 +5,7 @@
 
 ## 개발자
 - Nergis
-- 같이 하실분을 찾고 있습니다 
+- 같이 하실분을 찾고 있습니다 [연락처](https://github.com/KMHS-APP/kmhs.info/blob/main/README.md#%EB%AC%B8%EC%9D%98-%EC%97%B0%EB%9D%BD)
 
 ---
 
