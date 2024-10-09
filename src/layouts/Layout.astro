@@ -38,10 +38,18 @@ import { Icon } from 'astro-icon/components'
 				</li>
 				<li><a href="/AcademicCalendar">학사일정</a></li>
 				<li><a href="/feeding">급식</a></li>
+				<li><a href="/TODO">TODO</a></li>
 			</ul>
 		</nav>
 
 		<slot />
+
+		<footer class="bg-gray-800 text-white py-4 mt-8">
+			<div class="container mx-auto text-center">
+				<p>&copy; 2023 Nergis. All rights reserved.</p>
+				<a href="https://github.com/KMHS-APP/kmhs.info" class="text-blue-400 hover:underline">GitHub Repository</a>
+			</div>
+		</footer>
 	</body>
 </html>
 
