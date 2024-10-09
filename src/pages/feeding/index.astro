@@ -13,7 +13,7 @@ interface Meal {
 
 // 급식 데이터를 가져오는 함수
 async function fetchMeals(): Promise<Meal[]> {
-    const response = await fetch('/api/feeding');
+    const response = await fetch('https://automatic-winner-vx4jj4vrwqwhw9rw-4321.app.github.dev/api/feeding');
     return await response.json();
 }
 
