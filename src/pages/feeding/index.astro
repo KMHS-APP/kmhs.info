@@ -13,8 +13,13 @@ interface Meal {
 
 // 급식 데이터를 가져오는 함수
 async function fetchMeals(): Promise<Meal[]> {
-    const response = await fetch('https://automatic-winner-vx4jj4vrwqwhw9rw-4321.app.github.dev/api/feeding');
-    return await response.json();
+    const response = await fetch('https://kmhs.info/api/feeding');
+    try {
+        return await response.json();
+    } catch (error) {
+        Astro.redirect('/404');
+        return [];
+    }
 }
 
 // 날짜 형식을 사람이 읽기 쉬운 형식으로 변환하는 함수
