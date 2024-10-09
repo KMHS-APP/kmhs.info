@@ -12,7 +12,7 @@ interface AcademicEvent {
 
 // 학사 일정 데이터를 가져오는 함수
 async function fetchAcademicCalendar(): Promise<AcademicEvent[]> {
-    const response = await fetch(Astro.url.origin + '/api/academic-calendar');
+    const response = await fetch('/api/academic-calendar');
     return await response.json();
 }
 

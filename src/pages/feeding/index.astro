@@ -13,7 +13,7 @@ interface Meal {
 
 // 급식 데이터를 가져오는 함수
 async function fetchMeals(): Promise<Meal[]> {
-    const response = await fetch(Astro.url.origin + '/api/feeding');
+    const response = await fetch('/api/feeding');
     return await response.json();
 }
 
