@@ -7,6 +7,11 @@ export const prerender = true;
     <body class="bg-gr text-gray-900">
     <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">학사일정</h1>
 
+    <!-- Add this loading indicator element in the HTML -->
+    <div id="loading-indicator" class="text-center my-8">
+        <strong class="text-xl">Loading...</strong>
+    </div>
+
     <!-- Today's Events Section -->
     <div class="max-w-2xl mx-auto mb-4 text-center">
         <h2 class="text-2xl font-semibold mb-2">오늘의 일정</h2>
@@ -53,29 +58,33 @@ export const prerender = true;
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
+            const loadingIndicator = document.getElementById('loading-indicator') as HTMLElement;
+            loadingIndicator.style.display = 'block';
+
             const academicCalendar = await fetchAcademicCalendar();
+            loadingIndicator.style.display = 'none';
+
             const todayEvents = getTodayEvents(academicCalendar);
 
             const todayEventsContainer = document.getElementById('today-events') as HTMLElement;
             todayEventsContainer.innerHTML = todayEvents.length > 0
                 ? todayEvents.map(event => `
-                    <li class="bg-gray-100 dark:bg-black shadow-md rounded-lg p-4 mb-4">
-                        <h5 class="text-lg font-semibold">${formatDate(event.AA_YMD)}</h5>
-                        <strong class="block text-xl">${event.EVENT_NM}</strong>${event.EVENT_CNTNT}
-                    </li>
-                `).join('')
-                : `<li class="bg-gray-100 dark:bg-black shadow-md rounded-lg p-4 mb-4">
-                        <strong class="block text-xl">오늘은 일정이 없습니다.</strong>
-                    </li>`;
-
-            const academicCalendarContainer = document.getElementById('academic-calendar') as HTMLElement;
-            //@ts-ignore
-            academicCalendarContainer.innerHTML = academicCalendar.map(event => `
-                <li class="bg-gray-100 dark:bg-black shadow-md rounded-lg p-4 mb-4" data-month="${new Date(event.AA_YMD.slice(0, 4) + '-' + event.AA_YMD.slice(4, 6) + '-' + event.AA_YMD.slice(6, 8)).getMonth() + 1}">
+                <li class="bg-gray-100 dark:bg-black shadow-md rounded-lg p-4 mb-4">
                     <h5 class="text-lg font-semibold">${formatDate(event.AA_YMD)}</h5>
                     <strong class="block text-xl">${event.EVENT_NM}</strong>${event.EVENT_CNTNT}
                 </li>
-            `).join('');
+            `).join('')
+                : `<li class="bg-gray-100 dark:bg-black shadow-md rounded-lg p-4 mb-4">
+                    <strong class="block text-xl">오늘은 일정이 없습니다.</strong>
+                </li>`;
+
+            const academicCalendarContainer = document.getElementById('academic-calendar') as HTMLElement;
+            academicCalendarContainer.innerHTML = academicCalendar.map(event => `
+            <li class="bg-gray-100 dark:bg-black shadow-md rounded-lg p-4 mb-4" data-month="${new Date(event.AA_YMD.slice(0, 4) + '-' + event.AA_YMD.slice(4, 6) + '-' + event.AA_YMD.slice(6, 8)).getMonth() + 1}">
+                <h5 class="text-lg font-semibold">${formatDate(event.AA_YMD)}</h5>
+                <strong class="block text-xl">${event.EVENT_NM}</strong>${event.EVENT_CNTNT}
+            </li>
+        `).join('');
 
             Array.from({ length: 12 }, (_, i) => {
                 const button = document.getElementById(`month-button-${i + 1}`);

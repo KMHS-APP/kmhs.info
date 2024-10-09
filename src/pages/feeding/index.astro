@@ -7,6 +7,11 @@ export const prerender = true;
     <body class="bg-white text-gray-900">
     <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">급식 정보</h1>
 
+    <!-- Add this loading indicator element in the HTML -->
+    <div id="loading-indicator" class="text-center my-8">
+        <strong class="text-xl">Loading...</strong>
+    </div>
+
     <div class="max-w-2xl mx-auto mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
         <h5 class="text-lg text-gray-900 dark:text-gray-100 font-bold text-center">알레르기정보</h5>
         <hr class="my-2 border-gray-300 dark:border-gray-600">
@@ -96,7 +101,11 @@ export const prerender = true;
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
+            const loadingIndicator = document.getElementById('loading-indicator') as HTMLElement;
+            loadingIndicator.style.display = 'block';
+
             const meals = await fetchMeals();
+            loadingIndicator.style.display = 'none';
 
             const today = new Date();
             const todayString = `${today.getFullYear()}${String(today.getMonth() + 1).padStart(2, '0')}${String(today.getDate()).padStart(2, '0')}`;
