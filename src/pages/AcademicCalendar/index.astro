@@ -20,6 +20,13 @@ async function fetchAcademicCalendar(): Promise<AcademicEvent[]> {
     return data.SchoolSchedule[1].row;
 }
 
+// 오늘의 일정을 가져오는 함수
+function getTodayEvents(events: AcademicEvent[]): AcademicEvent[] {
+    const today = new Date();
+    const todayString = `${today.getFullYear()}${String(today.getMonth() + 1).padStart(2, '0')}${String(today.getDate()).padStart(2, '0')}`;
+    return events.filter(event => event.AA_YMD === todayString);
+}
+
 // 날짜 형식을 사람이 읽기 쉬운 형식으로 변환하는 함수
 function formatDate(dateString: string): string {
     const date = new Date(dateString.slice(0, 4) + '-' + dateString.slice(4, 6) + '-' + dateString.slice(6, 8));
@@ -28,51 +35,72 @@ function formatDate(dateString: string): string {
 
 // 학사 일정 데이터를 가져옴
 const academicCalendar: AcademicEvent[] = await fetchAcademicCalendar();
+const todayEvents: AcademicEvent[] = getTodayEvents(academicCalendar);
 ---
 
 <Layout title="Academic Calendar">
-    <body class="bg-white text-gray-900">
-        <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">학사일정</h1>
+    <body class="bg-gr text-gray-900">
+    <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">학사일정</h1>
 
-        <div class="max-w-2xl mx-auto mb-4 text-center">
-            {Array.from({ length: 12 }).map((_, i) => (
-                    <button
-                            id={`month-button-${i + 1}`}
-                            class="m-1 p-2 bg-blue-500 text-white rounded"
-                    >
-                        {i + 1}월
-                    </button>
-            ))}
-        </div>
-
-        <ul class="max-w-2xl mx-auto">
-            {academicCalendar.map((event) => (
-                    <li
-                            class="bg-white dark:bg-black shadow-md rounded-lg p-4 mb-4"
-                            data-month={new Date(event.AA_YMD.slice(0, 4) + '-' + event.AA_YMD.slice(4, 6) + '-' + event.AA_YMD.slice(6, 8)).getMonth() + 1}
-                    >
-                        <h5 class="text-lg font-semibold">{formatDate(event.AA_YMD)}</h5>
-                        <strong class="block text-xl">{event.EVENT_NM}</strong>{event.EVENT_CNTNT}
+    <!-- Today's Events Section -->
+    <div class="max-w-2xl mx-auto mb-4 text-center">
+        <h2 class="text-2xl font-semibold mb-2">오늘의 일정</h2>
+        <ul>
+            {todayEvents.length > 0 ? (
+                todayEvents.map((event) => (
+                        <li class="bg-gray-100 dark:bg-black shadow-md rounded-lg p-4 mb-4">
+                            <h5 class="text-lg font-semibold">{formatDate(event.AA_YMD)}</h5>
+                            <strong class="block text-xl">{event.EVENT_NM}</strong>{event.EVENT_CNTNT}
+                        </li>
+                ))
+            ) : (
+                    <li class="bg-gray-100 dark:bg-black shadow-md rounded-lg p-4 mb-4">
+                        <strong class="block text-xl">오늘은 일정이 없습니다.</strong>
                     </li>
-            ))}
+            )}
         </ul>
+    </div>
 
-        <script>
-            function scrollToMonth(month: number) {
-                const eventElement = document.querySelector(`[data-month="${month}"]`);
-                if (eventElement) {
-                    eventElement.scrollIntoView({ behavior: 'smooth' });
-                }
+    <!-- Month Selection Buttons -->
+    <div class="max-w-2xl mx-auto mb-4 text-center">
+        {Array.from({ length: 12 }).map((_, i) => (
+                <button
+                        id={`month-button-${i + 1}`}
+                        class="m-1 p-2 bg-blue-500 text-white rounded"
+                >
+                    {i + 1}월
+                </button>
+        ))}
+    </div>
+
+    <ul class="max-w-2xl mx-auto">
+        {academicCalendar.map((event) => (
+                <li
+                        class="bg-gray-100 dark:bg-black shadow-md rounded-lg p-4 mb-4"
+                        data-month={new Date(event.AA_YMD.slice(0, 4) + '-' + event.AA_YMD.slice(4, 6) + '-' + event.AA_YMD.slice(6, 8)).getMonth() + 1}
+                >
+                    <h5 class="text-lg font-semibold">{formatDate(event.AA_YMD)}</h5>
+                    <strong class="block text-xl">{event.EVENT_NM}</strong>{event.EVENT_CNTNT}
+                </li>
+        ))}
+    </ul>
+
+    <script>
+        function scrollToMonth(month: number) {
+            const eventElement = document.querySelector(`[data-month="${month}"]`);
+            if (eventElement) {
+                eventElement.scrollIntoView({ behavior: 'smooth' });
             }
+        }
 
-            document.addEventListener('DOMContentLoaded', () => {
-                Array.from({ length: 12 }, (_, i) => {
-                    const button = document.getElementById(`month-button-${i + 1}`);
-                    if (button) {
-                        button.addEventListener('click', () => scrollToMonth(i + 1));
-                    }
-                });
+        document.addEventListener('DOMContentLoaded', () => {
+            Array.from({ length: 12 }, (_, i) => {
+                const button = document.getElementById(`month-button-${i + 1}`);
+                if (button) {
+                    button.addEventListener('click', () => scrollToMonth(i + 1));
+                }
             });
-        </script>
+        });
+    </script>
     </body>
 </Layout>

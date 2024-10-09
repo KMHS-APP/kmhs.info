@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// noinspection JSUnusedGlobalSymbols
+export const prerender = true;
+
+interface Meal {
+    MLSV_YMD: string;
+    MMEAL_SC_NM: string;
+    DDISH_NM: string;
+    CAL_INFO: string;
+}
+
+// 급식 데이터를 가져오는 함수
+async function fetchMeals(): Promise<Meal[]> {
+    const currentYear = new Date().getFullYear();
+    const fromDate = `${currentYear}0101`;
+    const toDate = `${currentYear}1231`;
+    const response = await fetch(`https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=4e1af35dc1954eb8aaf573eff8653c43&Type=json&ATPT_OFCDC_SC_CODE=J10&SD_SCHUL_CODE=7531381&MLSV_FROM_YMD=${fromDate}&MLSV_TO_YMD=${toDate}&pSize=365`);
+    const data = await response.json();
+    return data.mealServiceDietInfo[1].row;
+}
+
+// 날짜 형식을 사람이 읽기 쉬운 형식으로 변환하는 함수
+function formatDate(dateString: string): string {
+    const date = new Date(dateString.slice(0, 4) + '-' + dateString.slice(4, 6) + '-' + dateString.slice(6, 8));
+    return date.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+// 급식 데이터를 가져옴
+const meals: Meal[] = await fetchMeals();
+
+// 오늘의 급식 데이터를 가져옴
+const today = new Date();
+const todayString = `${today.getFullYear()}${String(today.getMonth() + 1).padStart(2, '0')}${String(today.getDate()).padStart(2, '0')}`;
+const todayMeal = meals.find(meal => meal.MLSV_YMD === todayString);
+
+// 다음날 급식 데이터를 가져옴
+const tomorrow = new Date(today);
+tomorrow.setDate(today.getDate() + 1);
+const tomorrowString = `${tomorrow.getFullYear()}${String(tomorrow.getMonth() + 1).padStart(2, '0')}${String(tomorrow.getDate()).padStart(2, '0')}`;
+const tomorrowMeal = meals.find(meal => meal.MLSV_YMD === tomorrowString);
+---
+
+<Layout title="Meal Service">
+    <body class="bg-white text-gray-900">
+    <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">급식 정보</h1>
+
+    <div class="max-w-2xl mx-auto mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
+        <h5 class="text-lg text-gray-900 dark:text-gray-100 font-bold text-center">알레르기정보</h5>
+        <hr class="my-2 border-gray-300 dark:border-gray-600">
+        <p class="text-gray-700 dark:text-gray-300" id="allergy-info" style="display: none;">1.난류<br/>2.우유<br/>3.메밀<br/>4.땅콩<br/>5.대두<br/>6.밀<br/>7.고등어<br/>8.게<br/>9.새우<br/>10.돼지고기<br/>11.복숭아<br/>12.토마토<br/>13.아황산염<br/>14.호두<br/>15.닭고기<br/>16.소고기<br/>17.오징어<br/>18.조개류(굴,전복,홍합 포함)<br/>19.잣</p>
+        <div class="text-center my-2">
+            <button class="text-blue-500 border border-gray-300 dark:border-gray-600 rounded px-4 py-2" id="show-button" onclick="document.getElementById('allergy-info').style.display = 'block'; this.style.display = 'none'; document.getElementById('hide-button').style.display = 'inline';">더보기</button>
+            <button id="hide-button" class="text-blue-500 border border-gray-300 dark:border-gray-600 rounded px-4 py-2" style="display: none;" onclick="document.getElementById('allergy-info').style.display = 'none'; this.style.display = 'none'; document.getElementById('show-button').style.display = 'inline';">접기</button>
+        </div>
+    </div>
+
+    {todayMeal ? (
+            <div class="max-w-2xl mx-auto mb-4 p-4 bg-yellow-100 dark:bg-yellow-800 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-center mb-2">오늘의 급식</h2>
+                <h5 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{formatDate(todayMeal.MLSV_YMD)}</h5>
+                <p class="cal-info text-gray-700 dark:text-gray-300">&bull; 칼로리: {todayMeal.CAL_INFO}</p>
+                <hr class="my-2 border-gray-300 dark:border-gray-600">
+                <p class="menu-info text-gray-700 dark:text-gray-300">{todayMeal.DDISH_NM.replace(/<br\/>/g, '\n')}</p>
+            </div>
+    ) : (
+            <div class="max-w-2xl mx-auto mb-4 p-4 bg-red-100 dark:bg-red-800 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-center mb-2">오늘의 급식 정보가 없습니다</h2>
+                <p class="text-center text-gray-700 dark:text-gray-300">오늘의 급식 정보가 제공되지 않았습니다. 다른 날짜를 확인해 주세요.</p>
+            </div>
+    )}
+
+    {tomorrowMeal ? (
+            <div class="max-w-2xl mx-auto mb-4 p-4 bg-green-100 dark:bg-green-800 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-center mb-2">다음날의 급식</h2>
+                <h5 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{formatDate(tomorrowMeal.MLSV_YMD)}</h5>
+                <p class="cal-info text-gray-700 dark:text-gray-300">&bull; 칼로리: {tomorrowMeal.CAL_INFO}</p>
+                <hr class="my-2 border-gray-300 dark:border-gray-600">
+                <p class="menu-info text-gray-700 dark:text-gray-300">{tomorrowMeal.DDISH_NM.replace(/<br\/>/g, '\n')}</p>
+            </div>
+    ) : (
+            <div class="max-w-2xl mx-auto mb-4 p-4 bg-red-100 dark:bg-red-800 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-center mb-2">다음날의 급식 정보가 없습니다</h2>
+                <p class="text-center text-gray-700 dark:text-gray-300">다음날의 급식 정보가 제공되지 않았습니다. 다른 날짜를 확인해 주세요.</p>
+            </div>
+    )}
+
+    <div class="max-w-2xl mx-auto mb-4 text-center">
+        {Array.from({ length: 12 }).map((_, i) => (
+                <button
+                        id={`month-button-${i + 1}`}
+                        class="m-1 p-2 bg-blue-500 text-white rounded"
+                >
+                    {i + 1}월
+                </button>
+        ))}
+    </div>
+
+    <ul class="max-w-2xl mx-auto">
+        {meals.map((meal) => (
+                <li
+                        class="bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg p-4 mb-4"
+                        data-month={new Date(meal.MLSV_YMD.slice(0, 4) + '-' + meal.MLSV_YMD.slice(4, 6) + '-' + meal.MLSV_YMD.slice(6, 8)).getMonth() + 1}
+                >
+                    <h5 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{formatDate(meal.MLSV_YMD)}</h5>
+                    <p class="cal-info text-gray-700 dark:text-gray-300">&bull; 칼로리: {meal.CAL_INFO}</p>
+                    <hr class="my-2 border-gray-300 dark:border-gray-600">
+                    <p class="menu-info text-gray-700 dark:text-gray-300">{meal.DDISH_NM.replace(/<br\/>/g, '\n').replace(/\(근명\)/g, '')}</p>
+                </li>
+        ))}
+    </ul>
+
+    <style>
+        .cal-info {
+            font-weight: bold;
+        }
+        .menu-info {
+            margin-top: 0.5rem;
+            white-space: pre-line; /* Ensure newlines are rendered */
+        }
+    </style>
+
+    <script>
+        function scrollToMonth(month: number) {
+            const eventElement = document.querySelector(`[data-month="${month}"]`);
+            if (eventElement) {
+                eventElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            Array.from({ length: 12 }, (_, i) => {
+                const button = document.getElementById(`month-button-${i + 1}`);
+                if (button) {
+                    button.addEventListener('click', () => scrollToMonth(i + 1));
+                }
+            });
+        });
+    </script>
+    </body>
+</Layout>
