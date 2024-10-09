@@ -1,7 +1,5 @@
 import type { APIRoute } from 'astro';
 
-export const prerender = true;
-
 // @ts-ignore
 export const GET: APIRoute = async () => {
     const currentYear = new Date().getFullYear();
