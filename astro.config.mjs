@@ -8,14 +8,14 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 import cloudflare from '@astrojs/cloudflare';
-import { parseIsolatedEntityName } from 'typescript';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [icon({
     include: {
       mdi: ['home', 'snowflake', 'about-circle-outline'],
-      'fluent-emoji': ['fork-and-knife-with-plate']
+      icon_park_twotone: ['degree-hat'],
+      fluent_emoji_high_contrast: ['fork-and-knife-with-plate']
     }
   }), react(), tailwind()],
   output: 'server',
