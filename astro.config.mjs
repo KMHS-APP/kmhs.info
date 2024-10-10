@@ -14,8 +14,8 @@ export default defineConfig({
   integrations: [icon({
     include: {
       mdi: ['home', 'snowflake', 'about-circle-outline'],
-      icon_park_twotone: ['degree-hat'],
-      fluent_emoji_high_contrast: ['fork-and-knife-with-plate']
+      'icon-park-twotone': ['degree-hat'],
+      'fluent-emoji-high-contrast': ['fork-and-knife-with-plate']
     }
   }), react(), tailwind()],
   output: 'server',
