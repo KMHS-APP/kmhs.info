@@ -120,7 +120,7 @@ export const prerender = true;
             const tomorrowMeal = meals.find(meal => meal.MLSV_YMD === tomorrowString);
 
             renderMeal('today-meal-container', todayMeal, '오늘의 급식', 'bg-yellow-100 dark:bg-yellow-800');
-            renderMeal('tomorrow-meal-container', tomorrowMeal, '다음날의 급식', 'bg-green-100 dark:bg-green-800');
+            renderMeal('tomorrow-meal-container', tomorrowMeal, '내일 급식', 'bg-green-100 dark:bg-green-800');
             renderMealsList(meals);
 
             Array.from({ length: 12 }, (_, i) => {
