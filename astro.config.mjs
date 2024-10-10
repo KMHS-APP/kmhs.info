@@ -15,7 +15,7 @@ export default defineConfig({
   integrations: [icon({
     include: {
       mdi: ['mdi-home'],
-      fluent-emoji: ['fork-and-knife-with-plate']
+      'fluent-emoji': ['fork-and-knife-with-plate']
     }
   }), react(), tailwind()],
   output: 'server',
