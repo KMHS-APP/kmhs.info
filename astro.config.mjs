@@ -14,7 +14,7 @@ import { parseIsolatedEntityName } from 'typescript';
 export default defineConfig({
   integrations: [icon({
     include: {
-      mdi: ['home'],
+      mdi: ['home', 'snowflake', 'about-circle-outline'],
       'fluent-emoji': ['fork-and-knife-with-plate']
     }
   }), react(), tailwind()],

@@ -14,7 +14,7 @@
     "@astrojs/cloudflare": "^11.1.0",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.1",
-    "@iconify-json/fluent-emoji": "^1.2.1",
+    "@iconify-json/fluent-emoji-high-contrast": "^1.2.1",
     "@iconify-json/icon-park-twotone": "^1.2.1",
     "@iconify-json/mdi": "^1.2.1",
     "@types/react": "^18.3.11",
