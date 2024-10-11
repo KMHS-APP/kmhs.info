@@ -6,7 +6,7 @@ export const prerender = true;
 ---
 
 <Layout title="KMHS.INFO - 근명고등학교 정보">
-	<main>
+	<main class="bg-white">
 		<svg
 			class="astro-a"
 			width="495"
@@ -76,7 +76,6 @@ export const prerender = true;
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
-                background: #ffffff;
 	}
 	.astro-a {
 		position: absolute;
@@ -124,5 +123,10 @@ export const prerender = true;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	@media (prefers-color-scheme: dark) {
+		main {
+			background: #2e2e2e;
+		}
 	}
 </style>
