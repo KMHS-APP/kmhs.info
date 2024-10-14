@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ScrollToTopButton from '../../components/ScrollToTopButton.astro';
 // noinspection JSUnusedGlobalSymbols
 export const prerender = true;
 ---
@@ -40,6 +41,9 @@ export const prerender = true;
             <strong class="block text-xl">Loading...</strong>
         </li>
     </ul>
+
+    <!-- Scroll to Top Button -->
+    <ScrollToTopButton />
 
     <script>
         async function fetchAcademicCalendar() {

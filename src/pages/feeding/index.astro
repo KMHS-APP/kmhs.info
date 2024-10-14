@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ScrollToTopButton from '../../components/ScrollToTopButton.astro';
 // noinspection JSUnusedGlobalSymbols
 export const prerender = true;
 ---
@@ -38,6 +39,9 @@ export const prerender = true;
     </div>
 
     <ul id="meals-list" class="max-w-2xl mx-auto"></ul>
+
+    <!-- Scroll to Top Button -->
+    <ScrollToTopButton />
 
     <style>
         .cal-info {

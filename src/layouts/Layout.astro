@@ -4,9 +4,10 @@ export const prerender = true;
 
 interface Props {
 	title: string;
+	description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 import { Icon } from 'astro-icon/components'
 
@@ -16,15 +17,15 @@ const year = new Date().getFullYear()
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="author" content="Your Name" />
 		<meta name="keywords" content="astro, academic calendar, school schedule" />
 		<meta property="og:title" content={title} />
-		<meta property="og:description" content="Astro description" />
+		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://yourwebsite.com" />
+		<meta property="og:url" content="https://kmhs.info" />
 		<meta property="og:image" content="https://yourwebsite.com/image.jpg" />
 		<link rel="icon" type="image/png" href="/fav.png" />
 		<title>{title}</title>

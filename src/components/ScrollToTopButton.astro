@@ -1,0 +1,14 @@
+---
+export const prerender = true;
+---
+
+<button id="scroll-to-top" class="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-full">Top</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const scrollToTopButton = document.getElementById('scroll-to-top') as HTMLElement;
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+</script>
