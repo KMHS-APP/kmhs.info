@@ -5,7 +5,7 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#333333",
-  "description": "KMHS.INFO provides information for students of Geunmyeong High School.",
+  "description": "KMHS.INFO provides information for students of Keunmyung High School.",
   "icons": [
     {
       "src": "/pwa.png",
@@ -38,5 +38,9 @@
   "categories": [
     "education",
     "utilities"
-  ]
+  ],
+  "prefer_related_applications": true,
+  "edge_side_panel": {
+    "preferred_width": 480
+  }
 }
