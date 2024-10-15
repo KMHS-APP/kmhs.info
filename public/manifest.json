@@ -22,5 +22,21 @@
       "sizes": "400x400",
       "type": "image/png"
     }
+  ],
+  "id": "kmhs-info",
+  "dir": "auto",
+  "scope": "https://kmhs.info",
+  "lang": "ko",
+  "orientation": "natural",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "fullscreen",
+    "minimal-ui",
+    "browser"
+  ],
+  "categories": [
+    "education",
+    "utilities"
   ]
 }
