@@ -27,9 +27,22 @@ const year = new Date().getFullYear()
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://kmhs.info" />
 		<meta property="og:image" content="https://yourwebsite.com/image.jpg" />
-		<link rel="icon" type="image/png" href="/fav.png" />
-                <link rel="manifest" href="/manifest.json" />
+		<link rel="icon" type="image/webp" href="/favicon.webp" />
+		<link rel="manifest" href="/manifest.json">
 		<title>{title}</title>
+
+		<script is:inline>
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('/service-worker.js')
+						.then(registration => {
+							console.log('ServiceWorker registration successful with scope: ', registration.scope);
+						}, err => {
+							console.log('ServiceWorker registration failed: ', err);
+						});
+				});
+			}
+		</script>
 	</head>
 
 	<body>
