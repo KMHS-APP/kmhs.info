@@ -1,8 +1,16 @@
 ---
 export const prerender = true;
+import { Icon } from 'astro-icon/components'
 ---
 
-<button id="scroll-to-top" class="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-full">Top</button>
+<button id="scroll-to-top" class="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-full"><Icon name="mdi:chevron-up" class="scroll-to-top"/></button>
+
+<style>
+    .scroll-to-top {
+        width: 24px;
+        height: 24px;
+    }
+</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
