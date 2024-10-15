@@ -8,17 +8,17 @@
   "description": "KMHS.INFO provides information for students of Geunmyeong High School.",
   "icons": [
     {
-      "src": "/favicon.webp",
+      "src": "/pwa.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/favicon.webp",
+      "src": "/pwa.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/favicon.webp",
+      "src": "/pwa.png",
       "sizes": "400x400",
       "type": "image/png"
     }
