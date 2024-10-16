@@ -23,12 +23,12 @@ import Layout from '../../layouts/Layout.astro';
       let grade = 0;
       let classNum = 0;
 
-      function updateGrade(event) {
-        grade = parseInt(event.target.value);
+      function updateGrade(event: Event) {
+        grade = parseInt((event.target as HTMLInputElement).value);
       }
 
-      function updateClassNum(event) {
-        classNum = parseInt(event.target.value);
+      function updateClassNum(event: Event) {
+        classNum = parseInt((event.target as HTMLInputElement).value);
       }
 
       async function fetchTimetable() {
@@ -38,7 +38,10 @@ import Layout from '../../layouts/Layout.astro';
             throw new Error('Network response was not ok');
           }
           const data = await response.json();
-          document.getElementById('timetable').innerText = JSON.stringify(data, null, 2);
+          const timetableElement = document.getElementById('timetable');
+          if (timetableElement) {
+            timetableElement.innerText = JSON.stringify(data, null, 2);
+          }
         } catch (error) {
           console.error('Error fetching timetable:', error);
         }
