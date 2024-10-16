@@ -27,7 +27,7 @@
   "dir": "auto",
   "scope": "https://kmhs.info",
   "lang": "ko",
-  "orientation": "natural",
+  "orientation": "any",
   "display_override": [
     "window-controls-overlay",
     "standalone",
