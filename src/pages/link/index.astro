@@ -1,0 +1,58 @@
+---
+import Layout from "../../layouts/Layout.astro"
+---
+
+<Layout title="링크 단축기" description="링크 단축기 페이지입니다.">
+  <h1>링크 단축기</h1>
+  <form id="shorten-form">
+    <label for="url">URL:</label>
+    <input type="url" id="url" name="url" required>
+    <button type="submit">단축</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    const handleSubmit = async (event: SubmitEvent) => {
+      event.preventDefault();
+      const target = event.target as HTMLFormElement;
+      const resultDiv = document.getElementById('result');
+      if (!target || !resultDiv) {
+        if (resultDiv) {
+          resultDiv.innerText = '오류: 폼을 찾을 수 없습니다.';
+        }
+        return;
+      }
+      const urlElement = target.elements.namedItem('url');
+      if (!urlElement) {
+        resultDiv.innerText = '오류: URL 입력 요소를 찾을 수 없습니다.';
+        return;
+      }
+      const url = (urlElement as HTMLInputElement).value;
+      resultDiv.innerText = '단축 중...';
+
+      try {
+        const response = await fetch('https://link.kmhs.info/shorten', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ url })
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to shorten URL');
+        }
+
+        const data = await response.json();
+        resultDiv.innerHTML = `단축된 URL: <a href="${data.shortUrl}">${data.shortUrl}</a>`;
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : '알 수 없는 오류';
+        resultDiv.innerText = `오류: ${errorMessage}`;
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('shorten-form')?.addEventListener('submit', handleSubmit);
+    });
+  </script>
+</Layout>
