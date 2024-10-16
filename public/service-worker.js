@@ -1,8 +1,6 @@
 const CACHE_NAME = 'kmhs-info-cache-v1';
 const urlsToCache = [
     '/',
-    '/AcademicCalendar',
-    '/feeding',
     '/manifest.json',
     '/favicon.webp',
     '/api/academic-calendar',
