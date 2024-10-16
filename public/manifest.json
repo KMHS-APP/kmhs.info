@@ -41,5 +41,6 @@
   "prefer_related_applications": true,
   "edge_side_panel": {
     "preferred_width": 480
-  }
+  },
+  "orientation": "any"
 }
