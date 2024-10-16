@@ -21,6 +21,7 @@
     "@types/react-dom": "^18.3.1",
     "astro": "4.16.5",
     "astro-icon": "^1.1.1",
+    "comcigan.ts": "^1.2.1",
     "react": "^18.3.1",
     "react-calendar": "^5.0.0",
     "react-dom": "^18.3.1",
