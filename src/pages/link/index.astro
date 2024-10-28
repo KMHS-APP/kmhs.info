@@ -31,7 +31,7 @@ import Layout from "../../layouts/Layout.astro"
       resultDiv.innerText = '단축 중...';
 
       try {
-        const response = await fetch('https://link.kmhs.info/shorten', {
+        const response = await fetch('https://link-short.fdzz.workers.dev/shorten', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
