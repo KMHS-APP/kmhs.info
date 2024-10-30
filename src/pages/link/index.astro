@@ -3,10 +3,10 @@ import Layout from "../../layouts/Layout.astro"
 ---
 
 <Layout title="링크 단축기" description="링크 단축기 페이지입니다.">
-  <h1 class="text-3xl font-bold mb-4 text-center text-black dark:text-white">링크 단축기</h1>
+  <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">링크 단축</h1>
   <form id="shorten-form" class="space-y-4 max-w-2xl mx-auto p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
     <div>
-      <label for="url" class="block text-sm font-medium text-gray-700 dark:text-gray-300">URL:</label>
+      <label for="url" class="block text-sm font-medium text-gray-700 dark:text-gray-300">URL</label>
       <input type="url" id="url" name="url" required class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
     </div>
     <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">단축</button>
