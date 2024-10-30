@@ -9,7 +9,6 @@ export const prerender = true;
     <body class="bg-white text-gray-900">
     <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">급식 정보</h1>
 
-    <!-- Add this loading indicator element in the HTML -->
     <div id="loading-indicator" class="text-center my-8">
         <strong class="text-xl">Loading...</strong>
     </div>
@@ -40,7 +39,6 @@ export const prerender = true;
 
     <ul id="meals-list" class="max-w-2xl mx-auto"></ul>
 
-    <!-- Scroll to Top Button -->
     <ScrollToTopButton />
 
     <style>
@@ -49,7 +47,7 @@ export const prerender = true;
         }
         .menu-info {
             margin-top: 0.5rem;
-            white-space: pre-line; /* Ensure newlines are rendered */
+            white-space: pre-line;
         }
     </style>
 

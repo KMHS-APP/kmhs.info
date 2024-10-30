@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="PWA 설치" description="PWA 설치 페이지">
+  <h1 class="text-3xl font-bold mb-4">PWA 설치 페이지</h1>
+  <button id="installButton" class="bg-blue-500 text-white px-4 py-2 rounded">앱 설치</button>
+
+  <script is:inline>
+    let deferredPrompt;
+    const installButton = document.getElementById('installButton');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installButton.style.display = 'block';
+    });
+
+    installButton.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('사용자가 PWA를 설치했습니다.');
+        } else {
+          console.log('사용자가 PWA 설치를 거부했습니다.');
+        }
+        deferredPrompt = null;
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      console.log('PWA가 설치되었습니다.');
+    });
+  </script>
+</Layout>
