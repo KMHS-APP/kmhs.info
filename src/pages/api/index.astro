@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="API Documentation" description="API 설명 페이지">
+    <body class="bg-white text-gray-900">
+    <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">API 설명 페이지</h1>
+
+    <div class="max-w-2xl mx-auto mb-4">
+        <h2 class="text-2xl font-semibold mb-2">/api/feeding</h2>
+        <p>급식정보를 불러옵니다. 반환 타입은 JSON입니다.</p>
+        <pre><code>&rbrace;
+            "date": "2023-10-01",
+            "menu": ["밥", "국", "반찬1", "반찬2"]
+            &rbrace;</code></pre>
+    </div>
+
+    <div class="max-w-2xl mx-auto mb-4">
+        <h2 class="text-2xl font-semibold mb-2">/api/academic-calendar</h2>
+        <p>학사일정을 불러옵니다. 반환 타입은 JSON입니다.</p>
+        <pre><code>[
+            &rbrace;
+                "AA_YMD": "2023-10-01",
+                "EVENT_NM": "개교기념일",
+                "EVENT_CNTNT": "학교 개교 기념일 행사"
+            &rbrace;,
+            &rbrace;
+                "AA_YMD": "2023-10-02",
+                "EVENT_NM": "체육대회",
+                "EVENT_CNTNT": "학교 체육대회 행사"
+            &rbrace;
+            ]</code></pre>
+    </div>
+    </body>
+</Layout>

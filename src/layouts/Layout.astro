@@ -56,7 +56,7 @@ const year = new Date().getFullYear()
 				</li>
 				<li><a href="/AcademicCalendar"><Icon name="icon-park-twotone:degree-hat" class="home-icon" /></a></li>
 				<li><a href="/feeding"><Icon name="fluent-emoji-high-contrast:fork-and-knife-with-plate" class="home-icon" /></a></li>
-				<p class="text-white" style="margin: 0 0px;">|</p>
+				<p class="text-white" style="margin: 0 0;">|</p>
 				<li><a href="/link"><Icon name="mdi:link" class="home-icon" /></a></li>
                 <li><a href="/Snowflake"><Icon name="mdi:snowflake" class="home-icon" /></a></li>
 				<li><a href="/About"><Icon name="mdi:about-circle-outline" class="home-icon" /></a></li>
@@ -68,6 +68,10 @@ const year = new Date().getFullYear()
 		<footer class="bg-gray-800 text-white py-4 mt-8">
 			<div class="container mx-auto text-center">
 				<p>&copy; {year} <strong>Nergis</strong>. All rights reserved.</p>
+				<div>
+					<a href="/TODO" class="text-blue-400 hover:underline">TODO</a>
+					<a href="/api" class="text-blue-400 hover:underline">API Docs</a>
+				</div>
 				<p>Made with &hearts; and <a href="https://astro.build/" class="text-blue-400 hover:underline">Astro</a></p>
 				<a href="https://github.com/KMHS-APP/kmhs.info/" class="text-blue-400 hover:underline">GitHub Repository</a>
 			</div>
@@ -80,6 +84,10 @@ const year = new Date().getFullYear()
 		src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 		font-family: "Pretendard Variable";
 		font-display: swap;
+	}
+
+	* {
+		font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 	}
 
 	:root {
@@ -95,7 +103,6 @@ const year = new Date().getFullYear()
 	}
 
 	html {
-		font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 		background: #ffffff;
 	}
 

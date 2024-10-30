@@ -1,4 +1,4 @@
-import type { APIRoute } from 'astro';
+import type {APIRoute} from 'astro';
 
 // @ts-ignore
 export const GET: APIRoute = async () => {

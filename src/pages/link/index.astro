@@ -9,11 +9,11 @@ import Layout from "../../layouts/Layout.astro"
       <label for="url" class="block text-sm font-medium text-gray-700 dark:text-gray-300">URL</label>
       <input type="url" id="url" name="url" required class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
     </div>
-    <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-black bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">단축</button>
+    <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">단축</button>
   </form>
   <div id="result" class="mt-4 text-sm text-gray-700 dark:text-gray-300 text-center"></div>
   <canvas id="qrcode" class="mx-auto mt-4"></canvas>
-  <a id="download-link" class="hidden inline-flex w-full justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4 text-center">QR 코드 다운로드</a>
+  <a id="download-link" class="hidden w-full justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4 text-center">QR 코드 다운로드</a>
 
   <script>
     import QRCode from 'qrcode';

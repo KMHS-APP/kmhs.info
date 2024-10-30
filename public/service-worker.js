@@ -3,6 +3,7 @@ const urlsToCache = [
     '/',
     '/manifest.json',
     '/favicon.webp',
+    '/pwa.png',
     '/api/academic-calendar',
     '/api/feeding'
 ];

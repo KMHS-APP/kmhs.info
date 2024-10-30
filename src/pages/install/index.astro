@@ -15,18 +15,19 @@ import { Icon } from 'astro-icon/components';
       <p><Icon name="mdi:ios-share" class="inline-block w-6 h-6" /> 버튼을 눌러 <strong>홈 화면</strong>에 추가하기를 통해 설치를 해주세요.</p>
     </div>
   </main>
-  <script is:inline>
+  <script is:inline type="module">
     let deferredPrompt;
     const installButton = document.getElementById('installButton');
+    // noinspection SpellCheckingInspection
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
+      // noinspection JSUnresolvedReference
       installButton.style.display = 'block';
     });
     installButton.addEventListener('click', async () => {
       if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
+        await deferredPrompt.prompt();
         deferredPrompt = null;
       }
     });
