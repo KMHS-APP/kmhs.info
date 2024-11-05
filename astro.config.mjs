@@ -25,7 +25,7 @@ export default defineConfig({
   site: 'https://kmhs.info',
   vite: {
     ssr: {
-      noExternal: ['buffer'],
+      noExternal: true,
     },
   },
 });
