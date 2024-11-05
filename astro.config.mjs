@@ -24,8 +24,6 @@ export default defineConfig({
   }),
   site: 'https://kmhs.info',
   vite: {
-    ssr: {
-      noExternal: true,
-    },
+    "ssr.noExternal": true,
   },
 });
