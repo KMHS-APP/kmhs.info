@@ -23,4 +23,9 @@ export default defineConfig({
     imageService: 'cloudflare'
   }),
   site: 'https://kmhs.info',
+  vite: {
+    ssr: {
+      noExternal: ['buffer'],
+    },
+  },
 });
