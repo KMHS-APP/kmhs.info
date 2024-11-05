@@ -1,7 +1,5 @@
 import type { APIRoute } from 'astro';
-import pkg from 'comcigan.ts';
-//@ts-ignore
-const { School, Weekday } = pkg;
+import Comcigan, { School, Weekday } from 'comcigan.ts'
 
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
