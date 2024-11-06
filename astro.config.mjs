@@ -24,6 +24,9 @@ export default defineConfig({
   }),
   site: 'https://kmhs.info',
   vite: {
+    define: {
+      "process.env": process.env
+    },
     ssr: {
       external: ['comcigan.ts'],
     },
