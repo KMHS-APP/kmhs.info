@@ -29,7 +29,6 @@
     "comcigan.ts": "^1.2.2",
     "framer-motion": "^11.11.11",
     "lucide-react": "^0.454.0",
-    "next": "^15.0.2",
     "qrcode": "^1.5.4",
     "react": "^18.3.1",
     "react-calendar": "^5.1.0",
@@ -38,7 +37,8 @@
     "tailwind-merge": "^2.5.4",
     "tailwindcss": "^3.4.14",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "ultralight-s3": "^0.0.7"
   },
   "devDependencies": {
     "@types/qrcode": "^1.5.5"
