@@ -17,7 +17,7 @@ export default defineConfig({
       'icon-park-twotone': ['degree-hat'],
       'fluent-emoji-high-contrast': ['fork-and-knife-with-plate']
     }
-  }), react(), tailwind()],
+  }), react(), tailwind({applyBaseStyles: true,})],
   output: 'server',
   adapter: cloudflare({
     imageService: 'cloudflare'

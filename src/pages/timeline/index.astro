@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 ---
+
 <Layout title="시간표 조회" description="학년과 반을 선택하여 시간표를 조회하세요">
   <main class="mx-auto p-4 w-full max-w-4xl text-black dark:text-white text-lg leading-relaxed">
     <h1 class="text-4xl font-bold text-center mb-4">시간표 조회</h1>
@@ -33,11 +34,11 @@ import Layout from '../../layouts/Layout.astro';
       let grade = 0;
       let classNum = 0;
 
-      function updateGrade(event) {
+      function updateGrade(event: { target: { value: string; }; }) {
         grade = parseInt(event.target.value);
       }
 
-      function updateClassNum(event) {
+      function updateClassNum(event: { target: { value: string; }; }) {
         classNum = parseInt(event.target.value);
       }
 
@@ -58,7 +59,7 @@ import Layout from '../../layouts/Layout.astro';
               dayCell.textContent = day;
               const timetableCell = document.createElement('td');
               timetableCell.className = 'border p-2';
-              timetableCell.textContent = timetable.map(item => item.subject).join(', ');
+              timetableCell.textContent = (timetable as { subject: string }[]).map((item) => item.subject).join(', ');
               row.appendChild(dayCell);
               row.appendChild(timetableCell);
               timetableElement.appendChild(row);
@@ -70,9 +71,11 @@ import Layout from '../../layouts/Layout.astro';
       }
 
       if (gradeElement) {
+        // @ts-ignore
         gradeElement.addEventListener('input', updateGrade);
       }
       if (classNumElement) {
+        // @ts-ignore
         classNumElement.addEventListener('input', updateClassNum);
       }
       if (fetchButtonElement) {
