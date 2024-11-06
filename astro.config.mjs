@@ -29,6 +29,7 @@ export default defineConfig({
     },
     ssr: {
       external: ['comcigan.ts', 'ultralight-s3'],
+      target: 'webworker'
     },
   },
 });
