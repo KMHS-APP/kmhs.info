@@ -28,7 +28,7 @@ export default defineConfig({
       "process.env": process.env
     },
     ssr: {
-      external: ['comcigan.ts'],
+      external: ['comcigan.ts', 'ultralight-s3'],
     },
   },
 });
