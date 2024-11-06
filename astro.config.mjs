@@ -25,7 +25,7 @@ export default defineConfig({
   site: 'https://kmhs.info',
   vite: {
     ssr: {
-      external: ['undici', 'iconv-lite'],
+      external: ['comcigan.ts'],
     },
   },
 });
