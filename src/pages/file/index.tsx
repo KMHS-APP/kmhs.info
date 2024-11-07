@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'tailwindcss/tailwind.css';
 
 const FileUploadPage: React.FC = () => {
     const [file, setFile] = useState<File | null>(null);
@@ -49,14 +50,23 @@ const FileUploadPage: React.FC = () => {
     };
 
     return (
-        <div>
-            <h1>File Upload</h1>
-            <input type="file" onChange={handleFileChange} />
-            <button onClick={handleUpload}>Upload</button>
-            {message && <p>{message}</p>}
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            <h1 className="text-4xl font-bold mb-8">File Upload</h1>
+            <input 
+                type="file" 
+                onChange={handleFileChange} 
+                className="mb-4 p-2 border border-gray-300 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+            />
+            <button 
+                onClick={handleUpload} 
+                className="mb-4 px-6 py-2 bg-blue-500 text-white rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+            >
+                Upload
+            </button>
+            {message && <p className="mb-4 text-red-500">{message}</p>}
             {downloadUrl && (
-                <p>
-                    Download URL: <a href={downloadUrl} target="_blank" rel="noopener noreferrer">{downloadUrl}</a>
+                <p className="text-blue-500">
+                    Download URL: <a href={downloadUrl} target="_blank" rel="noopener noreferrer" className="underline">{downloadUrl}</a>
                 </p>
             )}
         </div>
