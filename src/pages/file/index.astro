@@ -59,7 +59,7 @@ import Layout from '@/layouts/Layout.astro'
                 loadingIcon.classList.remove('hidden');
             }
 
-            const url = 'https://file.kmhs.info';
+            const url = `https://file.kmhs.info/${file.name}`;
             try {
                 const response = await fetch(url, {
                     method: 'PUT',
