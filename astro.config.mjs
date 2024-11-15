@@ -13,7 +13,7 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   integrations: [icon({
     include: {
-      mdi: ['home', 'snowflake', 'about-circle-outline', 'chevron-up', 'link', 'ios-share', 'arrow-down-box', 'instagram', 'link-box-variant-outline', 'youtube'],
+      mdi: ['home', 'snowflake', 'about-circle-outline', 'chevron-up', 'link', 'ios-share', 'arrow-down-box', 'instagram', 'link-box-variant-outline', 'youtube', 'cloud-upload-outline'],
       'icon-park-twotone': ['degree-hat'],
       'fluent-emoji-high-contrast': ['fork-and-knife-with-plate']
     }

@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
 ---
 
 <Layout description="파일 업로드 페이지" title="파일 업로드">
@@ -11,7 +12,7 @@ import Layout from '@/layouts/Layout.astro'
                 <p class="text-sm text-gray-500">최대 파일 크기: 25MB</p>
                 <p class="text-sm text-gray-500">파일의 유효기한은 7일입니다.</p>
                 <button type="button" id="uploadButton" onclick="uploadFile()" class="w-full py-2 px-4 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 flex items-center justify-center">
-                    <span id="uploadButtonText">업로드</span>
+                    <Icon name="mdi:cloud-upload-outline" />
                     <svg id="loadingIcon" class="hidden animate-spin h-5 w-5 text-white ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
