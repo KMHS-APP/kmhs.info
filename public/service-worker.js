@@ -5,7 +5,12 @@ const urlsToCache = [
     '/favicon.webp',
     '/pwa.png',
     '/api/academic-calendar',
-    '/api/feeding'
+    '/api/feeding',
+    '/url',
+    '/link',
+    'file',
+    '/snowflake',
+    '/about'
 ];
 
 self.addEventListener('install', event => {
