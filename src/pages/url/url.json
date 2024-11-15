@@ -6,10 +6,10 @@
       "type": "url"
     },
     {
-        "title": "학교 YouTube",
-        "description": "",
-        "link": "https://youtube.com/@kmbs?si=X7ahZrr0zQpmh_4K",
-        "type": "youtube"
+      "title": "학교 YouTube",
+      "description": "",
+      "link": "https://youtube.com/@kmbs?si=X7ahZrr0zQpmh_4K",
+      "type": "youtube"
     },
     {
       "title": "학교 인스타그램",
@@ -36,33 +36,33 @@
       "type": "instar"
     },
     {
-        "title": "보건실 인스타그램",
-        "description": "",
-        "link": "https://www.instagram.com/kmbg_healthroom?igsh=MWt5YXV2ejl1NWdocg==",
-        "type": "instar"
+      "title": "보건실 인스타그램",
+      "description": "",
+      "link": "https://www.instagram.com/kmbg_healthroom?igsh=MWt5YXV2ejl1NWdocg==",
+      "type": "instar"
     },
     {
-        "title": "앱서비스고 인스타그램",
-        "description": "",
-        "link": "https://www.instagram.com/km_.app.service?igsh=MWZxN3JnNjZyejF5eQ==",
-        "type": "instar"
+      "title": "앱서비스과 인스타그램",
+      "description": "",
+      "link": "https://www.instagram.com/km_.app.service?igsh=MWZxN3JnNjZyejF5eQ==",
+      "type": "instar"
     },
     {
-        "title": "베이커리카페과 인스타그램",
-        "description": "",
-        "link": "https://www.instagram.com/km_bakery_cafe?igsh=MXJwdTBkdDZhdGVidQ==",
-        "type": "instar"
+      "title": "베이커리카페과 인스타그램",
+      "description": "",
+      "link": "https://www.instagram.com/km_bakery_cafe?igsh=MXJwdTBkdDZhdGVidQ==",
+      "type": "instar"
     },
     {
-        "title": "패션산업디자인과 인스타그램",
-        "description": "",
-        "link": "https://www.instagram.com/kmhs_fashion?igsh=Yml0dTcweGVicnR4",
-        "type": "instar"
+      "title": "패션산업디자인과 인스타그램",
+      "description": "",
+      "link": "https://www.instagram.com/kmhs_fashion?igsh=Yml0dTcweGVicnR4",
+      "type": "instar"
     },
     {
-        "title": "마케팅경영과 인스타그램",
-        "description": "",
-        "link": "https://www.instagram.com/km_.marketing?igsh=cXppam12cW9kaWJq",
-        "type": "instar"
+      "title": "마케팅경영과 인스타그램",
+      "description": "",
+      "link": "https://www.instagram.com/km_.marketing?igsh=cXppam12cW9kaWJq",
+      "type": "instar"
     }
   ]
