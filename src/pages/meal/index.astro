@@ -72,8 +72,16 @@ export const prerender = true;
                         <p class="cal-info text-gray-700 dark:text-gray-300">&bull; 칼로리: ${meal.CAL_INFO}</p>
                         <hr class="my-2 border-gray-300 dark:border-white">
                         <p class="menu-info text-gray-700 dark:text-gray-300">${meal.DDISH_NM.replace(/<br\/>/g, '<br />').replace(/\(근명\)/g, '')}</p>
+                        <button class="copy-menu-button text-blue-500 border border-gray-300 dark:border-gray-600 rounded px-4 py-2 mt-2">메뉴 복사</button>
                     </div>
                 `;
+                const copyButton = container.querySelector('.copy-menu-button') as HTMLButtonElement;
+                copyButton.addEventListener('click', () => {
+                    const menuInfo = meal.DDISH_NM.replace(/<br\/>/g, '\n').replace(/\(근명\)/g, '');
+                    navigator.clipboard.writeText(menuInfo).then(() => {
+                        alert('메뉴가 복사되었습니다.');
+                    });
+                });
             } else {
                 container.innerHTML = `
                     <div class="max-w-2xl mx-auto mb-4 p-4 bg-red-100 dark:bg-red-800 rounded-lg shadow-md">
