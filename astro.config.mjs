@@ -9,6 +9,8 @@ import tailwind from '@astrojs/tailwind';
 
 import cloudflare from '@astrojs/cloudflare';
 
+import node from '@astrojs/node';
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [icon({
@@ -19,8 +21,8 @@ export default defineConfig({
     }
   }), react(), tailwind({applyBaseStyles: true,})],
   output: 'server',
-  adapter: cloudflare({
-    imageService: 'cloudflare'
+  adapter: node({
+    mode: 'middleware',
   }),
   site: 'https://kmhs.info',
   vite: {
