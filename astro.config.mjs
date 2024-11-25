@@ -25,13 +25,4 @@ export default defineConfig({
     mode: 'middleware',
   }),
   site: 'https://kmhs.info',
-  vite: {
-    define: {
-      "process.env": process.env
-    },
-    ssr: {
-      external: ['comcigan.ts', 'ultralight-s3'],
-      target: 'webworker'
-    },
-  },
 });
