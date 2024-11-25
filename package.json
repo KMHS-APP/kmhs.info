@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/cloudflare": "^11.2.0",
-    "@astrojs/react": "^3.6.2",
+    "@astrojs/react": "^3.6.3",
     "@astrojs/tailwind": "^5.1.2",
     "@iconify-json/fluent-emoji-high-contrast": "^1.2.1",
     "@iconify-json/icon-park-twotone": "^1.2.1",
@@ -23,8 +23,8 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "astro": "4.16.13",
-    "astro-icon": "^1.1.2",
+    "astro": "4.16.14",
+    "astro-icon": "^1.1.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "comcigan.ts": "^1.2.2",
@@ -35,10 +35,10 @@
     "react-calendar": "^5.1.0",
     "react-dom": "^18.3.1",
     "string-width": "^7.2.0",
-    "tailwind-merge": "^2.5.4",
+    "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.15",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "ultralight-s3": "^0.0.7"
   },
   "devDependencies": {
