@@ -29,7 +29,7 @@
     "clsx": "^2.1.1",
     "comcigan.ts": "^1.2.2",
     "framer-motion": "^11.11.17",
-    "lucide-react": "^0.460.0",
+    "lucide-react": "^0.461.0",
     "qrcode": "^1.5.4",
     "react": "^18.3.1",
     "react-calendar": "^5.1.0",

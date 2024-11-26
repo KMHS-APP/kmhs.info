@@ -1,0 +1,17 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Card from './Card.astro';
+import links from './url.json';
+---
+
+<Layout title="도구 모음" description='Toolbox'>
+  <div class="container mx-auto p-4">
+    <h1 class="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-green-500 text-transparent bg-clip-text">유용한 도구 모음</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {links.map(link => (
+        //@ts-ignore
+        <Card title={link.title} description={link.description} link={link.link} type={link.type} />
+      ))}
+    </div>
+  </div>
+</Layout>

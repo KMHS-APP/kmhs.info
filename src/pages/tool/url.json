@@ -1,0 +1,20 @@
+[
+  {
+    "title": "링크 단축",
+    "description": "긴 링크를 짧은 링크로 단축해 줍니다.",
+    "link": "/link",
+    "type": "tool"
+  },
+  {
+    "title": "파일 업로드",
+    "description": "유효기간: 7일, 크기제한 25MB",
+    "link": "/file",
+    "type":"tool"
+  },
+  {
+    "title": "Snowflake",
+    "description": "Snowflake는 전 세계 사람들이 검열된 웹사이트와 애플리케이션에 접근할 수 있도록 해주는 시스템입니다.",
+    "link": "/snowflake",
+    "type":"tool"
+  }
+]
