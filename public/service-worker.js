@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kmhs-info-cache-v1';
+const CACHE_NAME = 'kmhs-info-cache-v2';
 const urlsToCache = [
     '/',
     '/manifest.json',
@@ -8,9 +8,11 @@ const urlsToCache = [
     '/api/feeding',
     '/url',
     '/link',
-    'file',
+    '/file',
     '/snowflake',
-    '/about'
+    '/about',
+    '/install',
+    '/tool'
 ];
 
 self.addEventListener('install', event => {
