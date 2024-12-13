@@ -26,12 +26,6 @@ export default defineConfig({
   vite: {
     define: {
       "process.env": process.env
-    }
-  },
-  // @ts-ignore
-  resolve: {
-    alias: import.meta.env.PROD && {
-      'react-dom/server': 'react-dom/server.edge',
     },
   },
 });
