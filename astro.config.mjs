@@ -19,9 +19,7 @@ export default defineConfig({
     }
   }), react(), tailwind({applyBaseStyles: true,})],
   output: 'server',
-  adapter: cloudflare({
-    imageService: 'compile'
-  }),
+  adapter: cloudflare(),
   site: 'https://kmhs.info',
   vite: {
     define: {
