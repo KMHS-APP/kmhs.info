@@ -27,7 +27,6 @@
     "astro-icon": "^1.1.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "comcigan.ts": "^1.2.2",
     "framer-motion": "^11.14.3",
     "lucide-react": "^0.468.0",
     "qrcode": "^1.5.4",
@@ -38,8 +37,7 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.16",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.7.2",
-    "ultralight-s3": "^0.0.7"
+    "typescript": "^5.7.2"
   },
   "devDependencies": {
     "@types/qrcode": "^1.5.5"

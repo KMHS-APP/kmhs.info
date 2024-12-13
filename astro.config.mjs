@@ -20,7 +20,7 @@ export default defineConfig({
   }), react(), tailwind({applyBaseStyles: true,})],
   output: 'server',
   adapter: cloudflare({
-    imageService: 'cloudflare'
+    imageService: 'compile'
   }),
   site: 'https://kmhs.info',
   vite: {
