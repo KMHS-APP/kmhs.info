@@ -34,10 +34,7 @@
     "minimal-ui",
     "browser"
   ],
-  "categories": [
-    "education",
-    "utilities"
-  ],
+  "categories": ["education", "utilities"],
   "prefer_related_applications": true,
   "edge_side_panel": {
     "preferred_width": 480

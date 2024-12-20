@@ -1,34 +1,44 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from "../../layouts/Layout.astro";
 // noinspection JSUnusedGlobalSymbols
 export const prerender = true;
 ---
 
-<Layout title="About KMHS.INFO" description='정보'>
-    <main class="mx-auto p-4 w-full max-w-4xl text-black dark:text-white text-lg leading-relaxed">
-        <h1 class="text-4xl font-bold text-center mb-4 text-[#883aea]">About KMHS.INFO</h1> <!-- 대표 보라색 적용 -->
-        <p class="mb-4">
-            <strong>KMHS.INFO</strong>는 근명고등학교 학생들을 위한 정보형 사이트입니다. 이 사이트는 학사일정, 급식 정보, 그리고 기타 학교 관련 정보를 제공합니다.
-        </p>
-        <h2 class="text-3xl font-semibold mb-2 text-[#883aea]">개발자</h2> <!-- 제목 색상 -->
-        <p class="mb-4">
-            &bull; Nergis
-        </p>
-        <h2 class="text-3xl font-semibold mb-2 text-[#883aea]">사용 기술</h2>
-        <ul class="list-disc pl-5 mb-4">
-            <li>Astro</li>
-            <li>Tailwind CSS</li>
-            <li>CSS</li>
-            <li>TypeScript</li>
-            <li>HTML</li>
-            <li>JavaScript</li>
-        </ul>
-        <h2 class="text-3xl font-semibold mb-2 text-[#883aea]">배포 기술</h2>
-        <p class="mb-4">&bull; Cloudflare Pages</p>
-        <h2 class="text-3xl font-semibold mb-2 text-[#883aea]">문의, 연락</h2>
-        <p class="mb-4">
-            &bull; <strong>Email</strong>: <code class="bg-[#AAFFAA] p-1 rounded text-black">me@nergis.dev</code><br />
-            &bull; <strong>Signal</strong>: <code class="bg-[#AAFFAA] p-1 rounded text-black">@Nergis.01</code>
-        </p>
-    </main>
+<Layout title="About KMHS.INFO" description="정보">
+  <main
+    class="mx-auto p-4 w-full max-w-4xl text-black dark:text-white text-lg leading-relaxed"
+  >
+    <h1 class="text-4xl font-bold text-center mb-4 text-[#883aea]">
+      About KMHS.INFO
+    </h1>
+    <!-- 대표 보라색 적용 -->
+    <p class="mb-4">
+      <strong>KMHS.INFO</strong>는 근명고등학교 학생들을 위한 정보형
+      사이트입니다. 이 사이트는 학사일정, 급식 정보, 그리고 기타 학교 관련
+      정보를 제공합니다.
+    </p>
+    <h2 class="text-3xl font-semibold mb-2 text-[#883aea]">개발자</h2>
+    <!-- 제목 색상 -->
+    <p class="mb-4">&bull; Nergis</p>
+    <h2 class="text-3xl font-semibold mb-2 text-[#883aea]">사용 기술</h2>
+    <ul class="list-disc pl-5 mb-4">
+      <li>Astro</li>
+      <li>Tailwind CSS</li>
+      <li>CSS</li>
+      <li>TypeScript</li>
+      <li>HTML</li>
+      <li>JavaScript</li>
+    </ul>
+    <h2 class="text-3xl font-semibold mb-2 text-[#883aea]">배포 기술</h2>
+    <p class="mb-4">&bull; Cloudflare Pages</p>
+    <h2 class="text-3xl font-semibold mb-2 text-[#883aea]">문의, 연락</h2>
+    <p class="mb-4">
+      &bull; <strong>Email</strong>: <code
+        class="bg-[#AAFFAA] p-1 rounded text-black">me@nergis.dev</code
+      ><br />
+      &bull; <strong>Signal</strong>: <code
+        class="bg-[#AAFFAA] p-1 rounded text-black">@Nergis.01</code
+      >
+    </p>
+  </main>
 </Layout>

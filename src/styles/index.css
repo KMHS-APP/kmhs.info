@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* src/styles/globals.css */
 :root {
   --jetbrains-primary: #883aea; /* JetBrains 대표 보라색 */
-  --jetbrains-accent: #AAFFAA; /* 포인트 색상 */
-  --text-color: #FFFFFF; /* 텍스트 색상 */
+  --jetbrains-accent: #afa; /* 포인트 색상 */
+  --text-color: #fff; /* 텍스트 색상 */
   --background-color: #1e1e2f; /* 전체 배경 색 */
   --header-background: #2b2b3e; /* 헤더 배경 색상 */
   --card-background: #2e2e40; /* 카드 배경 색상 */
@@ -42,8 +41,12 @@ html {
 }
 
 .gradient-text {
-  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
-  -webkit-background-clip: text;
+  background: linear-gradient(
+    to right,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -70,13 +73,15 @@ html {
   text-align: center;
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 12px rgb(0 0 0 / 20%);
 }
 
 .card .title {

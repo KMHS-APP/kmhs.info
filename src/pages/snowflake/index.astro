@@ -1,20 +1,29 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { Image } from 'astro:assets';
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
 // noinspection JSUnusedGlobalSymbols
 export const prerender = true;
 ---
 
-<Layout title="Snowflake" description='스노우플레이크'>
-    <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">❄️ Snowflake ❄️</h1>
-    <hr class="my-2 border-gray-300 dark:border-white">
+<Layout title="Snowflake" description="스노우플레이크">
+  <h1 class="text-3xl font-bold text-center my-8 text-black dark:text-white">
+    ❄️ Snowflake ❄️
+  </h1>
+  <hr class="my-2 border-gray-300 dark:border-white" />
 
-    <div style="display: flex; justify-content: center;">
-        <iframe src="https://snowflake.torproject.org/embed.html" width="320" height="240"></iframe>
-    </div>
+  <div style="display: flex; justify-content: center;">
+    <iframe
+      src="https://snowflake.torproject.org/embed.html"
+      width="320"
+      height="240"></iframe>
+  </div>
 
-    <div style="display: flex; justify-content: center;">
-        <Image src="https://snowflake.torproject.org/snowflake-schematic.png" alt="Snowflake" width="640" height="480" />
-    </div>
-
+  <div style="display: flex; justify-content: center;">
+    <Image
+      src="https://snowflake.torproject.org/snowflake-schematic.png"
+      alt="Snowflake"
+      width="640"
+      height="480"
+    />
+  </div>
 </Layout>

@@ -3,100 +3,101 @@ export const prerender = true;
 
 // Props interface
 interface LinkCardProps {
-    title: string;
-    body: string;
-    href: string;
+  title: string;
+  body: string;
+  href: string;
 }
 
 // Separate function to get Astro props
 const getLinkCardProps = (): LinkCardProps => {
-    return Astro.props as LinkCardProps;
+  return Astro.props as LinkCardProps;
 };
 
 // Destructuring props via helper function
-const {href, title, body} = getLinkCardProps();
+const { href, title, body } = getLinkCardProps();
 ---
 
 <li class="link-card">
-    <a href={href}>
-        <h2 class="card-title">
-            {title}
-            <span>&rarr;</span>
-        </h2>
-        <p>
-            {body}
-        </p>
-    </a>
+  <a href={href}>
+    <h2 class="card-title">
+      {title}
+      <span>&rarr;</span>
+    </h2>
+    <p>
+      {body}
+    </p>
+  </a>
 </li>
 <style>
-    /* Centralized CSS variables */
-    :root {
-        --primary-color: #883aea;
-        --secondary-color: #AAFFAA;
-        --bg-dark: rgba(136, 58, 234, 0.1);
-        --text-light: #ffffff;
-        --gradient: linear-gradient(135deg, #883aea, #AAFFAA);
-    }
+  /* Centralized CSS variables */
+  :root {
+    --primary-color: #883aea;
+    --secondary-color: #aaffaa;
+    --bg-dark: rgba(136, 58, 234, 0.1);
+    --text-light: #ffffff;
+    --gradient: linear-gradient(135deg, #883aea, #aaffaa);
+  }
 
-    .link-card {
-        list-style: none;
-        display: flex;
-        padding: 1px;
-        background: var(--bg-dark);
-        background-size: 400%;
-        border-radius: 7px;
-        background-position: 100%;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-        transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.3s ease-in-out;
-    }
+  .link-card {
+    list-style: none;
+    display: flex;
+    padding: 1px;
+    background: var(--bg-dark);
+    background-size: 400%;
+    border-radius: 7px;
+    background-position: 100%;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition:
+      background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.3s ease-in-out;
+  }
 
-    .link-card > a {
-        text-decoration: none;
-        line-height: 1.4;
-        padding: 1.4rem;
-        border-radius: 8px;
-        width: 100%;
-        color: var(--text-light);
-        background: var(--bg-dark);
-        opacity: 0.9;
-        transition: all 0.3s ease;
-    }
+  .link-card > a {
+    text-decoration: none;
+    line-height: 1.4;
+    padding: 1.4rem;
+    border-radius: 8px;
+    width: 100%;
+    color: var(--text-light);
+    background: var(--bg-dark);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
 
-	.link-card > a > p {
-		color: var(--text-light);
-	}
+  .link-card > a > p {
+    color: var(--text-light);
+  }
 
-    .card-title {
-        margin: 0;
-        font-size: 1.25rem;
-        background: none; /* Default transparent background */
-        color: var(--text-light); /* Default text */
-        transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
+  .card-title {
+    margin: 0;
+    font-size: 1.25rem;
+    background: none; /* Default transparent background */
+    color: var(--text-light); /* Default text */
+    transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-    .card-title span {
-        background: var(--gradient); /* Gradient arrow */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-        transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
+  .card-title span {
+    background: var(--gradient); /* Gradient arrow */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-    .link-card:is(:hover, :focus-within) {
-        background: var(--gradient); /* Gradient background for hover */
-        background-position: 0;
-        color: var(--text-light);
-        transform: scale(1.03);
-    }
+  .link-card:is(:hover, :focus-within) {
+    background: var(--gradient); /* Gradient background for hover */
+    background-position: 0;
+    color: var(--text-light);
+    transform: scale(1.03);
+  }
 
-    .link-card > a:hover {
-        color: var(--secondary-color); /* Highlight text */
-        box-shadow: 0 4px 15px rgba(136, 58, 234, 0.4);
-    }
+  .link-card > a:hover {
+    color: var(--secondary-color); /* Highlight text */
+    box-shadow: 0 4px 15px rgba(136, 58, 234, 0.4);
+  }
 
-    .card-title:hover span {
-        color: var(--secondary-color);
-    }
+  .card-title:hover span {
+    color: var(--secondary-color);
+  }
 </style>
