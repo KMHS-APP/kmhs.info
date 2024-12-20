@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* src/styles/globals.css */
+:root {
+  --jetbrains-primary: #883aea; /* JetBrains 대표 보라색 */
+  --jetbrains-accent: #AAFFAA; /* 포인트 색상 */
+  --text-color: #FFFFFF; /* 텍스트 색상 */
+  --background-color: #1e1e2f; /* 전체 배경 색 */
+  --header-background: #2b2b3e; /* 헤더 배경 색상 */
+  --card-background: #2e2e40; /* 카드 배경 색상 */
+  --footer-background: #1a1a28; /* 푸터 배경 색상 */
+  --gradient-start: var(--jetbrains-primary);
+  --gradient-end: var(--jetbrains-accent);
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrains Mono", sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.jetbrains-theme {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header-container {
+  background-color: var(--header-background);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.header-container h1 {
+  font-size: 2.5rem;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sub-heading {
+  color: var(--jetbrains-accent);
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.jetbrains-theme .feature-grid a.card-link {
+  text-decoration: none;
+}
+
+.card {
+  background-color: var(--card-background);
+  border: 1px solid var(--jetbrains-primary);
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  color: var(--gradient-start);
+  margin-bottom: 1rem;
+}
+
+.card .body {
+  color: var(--text-color);
+}
+
+footer {
+  background-color: var(--footer-background);
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+footer .email-link {
+  color: var(--jetbrains-accent);
+  text-decoration: underline;
+}
+
+footer .email-link:hover {
+  text-decoration: none;
+}

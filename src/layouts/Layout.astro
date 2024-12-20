@@ -1,6 +1,7 @@
 ---
 // noinspection JSUnusedGlobalSymbols
 export const prerender = true;
+import '@/styles/globals.css'
 
 interface Props {
 	title: string;
@@ -30,7 +31,6 @@ const year = new Date().getFullYear()
 		<link rel="icon" type="image/webp" href="/favicon.webp" />
 		<link rel="manifest" href="/manifest.json">
 		<meta name="google-adsense-account" content="ca-pub-6290342471056589">
-		<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate" />
 		<title>{title}</title>
 
 		<script is:inline>
@@ -99,34 +99,6 @@ const year = new Date().getFullYear()
 		font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 	}
 
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-
-	html {
-		background: #ffffff;
-	}
-
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-
 	.navbar {
 		background-color: #333;
 		padding: 1rem;
@@ -160,23 +132,6 @@ const year = new Date().getFullYear()
 
 	/* 다크 모드 스타일 */
 	@media (prefers-color-scheme: dark) {
-		:root {
-			--accent: 224, 204, 250;
-			--accent-light: 136, 58, 234;
-			--accent-dark: 224, 204, 250;
-			--accent-gradient: linear-gradient(
-				45deg,
-				rgb(var(--accent)),
-				rgb(var(--accent-light)) 30%,
-				black 60%
-			);
-		}
-
-		html {
-			background: rgba(0, 0, 0, 0.82);
-			color: #ffffff;
-		}
-
 		.navbar {
 			background-color: #222;
 		}
