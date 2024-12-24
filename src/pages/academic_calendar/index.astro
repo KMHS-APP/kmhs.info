@@ -114,7 +114,7 @@ export const prerender = true;
         //@ts-ignore
         academicCalendarContainer.innerHTML = academicCalendar
           .map(
-            (event) => `
+            (event: { AA_YMD: string; EVENT_NM: string; EVENT_CNTNT: string }) => `
             <li class="bg-gray-100 dark:bg-gray-800 dark:text-gray-300 shadow-md rounded-lg p-4 mb-4" data-month="${new Date(event.AA_YMD.slice(0, 4) + "-" + event.AA_YMD.slice(4, 6) + "-" + event.AA_YMD.slice(6, 8)).getMonth() + 1}">
                 <h5 class="text-lg font-semibold">${formatDate(event.AA_YMD)}</h5>
                 <strong class="block text-xl">${event.EVENT_NM}</strong>${event.EVENT_CNTNT}

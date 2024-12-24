@@ -182,9 +182,8 @@ export const prerender = true;
         const tomorrow = new Date(today);
         tomorrow.setDate(today.getDate() + 1);
         const tomorrowString = `${tomorrow.getFullYear()}${String(tomorrow.getMonth() + 1).padStart(2, "0")}${String(tomorrow.getDate()).padStart(2, "0")}`;
-        //@ts-ignore
         const tomorrowMeal = meals.find(
-          (meal) => meal.MLSV_YMD === tomorrowString,
+          (meal: { MLSV_YMD: string }) => meal.MLSV_YMD === tomorrowString,
         );
 
         renderMeal(
