@@ -74,6 +74,7 @@ import Layout from "../../../layouts/Layout.astro";
         });
 
         if (!response.ok) {
+          // noinspection ExceptionCaughtLocallyJS
           throw new Error("Failed to shorten URL");
         }
 

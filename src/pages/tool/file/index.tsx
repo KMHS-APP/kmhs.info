@@ -45,7 +45,7 @@ const FileUploadPage: React.FC = () => {
       } else {
         setMessage("File upload failed.");
       }
-    } catch (error) {
+    } catch {
       setMessage("An error occurred during file upload.");
     }
   };
