@@ -78,13 +78,11 @@ import Layout from "../../layouts/Layout.astro";
           </tr>
         </thead>
         <tbody>
-          <tr><td class="border p-2">1교시</td></tr>
-          <tr><td class="border p-2">2교시</td></tr>
-          <tr><td class="border p-2">3교시</td></tr>
-          <tr><td class="border p-2">4교시</td></tr>
-          <tr><td class="border p-2">5교시</td></tr>
-          <tr><td class="border p-2">6교시</td></tr>
-          <tr><td class="border p-2">7교시</td></tr>
+          {
+            Array.from({ length: 7 }).map((_, i) => (
+            <tr><td class="border p-2">{i + 1}교시</td></tr>
+            ))
+          }
         </tbody>
       </table>
     </div>
