@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ScrollToTopButton from "../../components/ScrollToTopButton.astro";
+import { Image } from "astro:assets";
 // noinspection JSUnusedGlobalSymbols
 export const prerender = true;
 ---
@@ -131,7 +132,7 @@ export const prerender = true;
                         <p class="cal-info text-gray-700 dark:text-gray-300">&bull; 칼로리: ${meal.CAL_INFO}</p>
                         <hr class="my-2 border-gray-300 dark:border-white">
                         <p class="menu-info text-gray-700 dark:text-gray-300">${meal.DDISH_NM.replace(/<br\/>/g, "<br />").replace(/\(근명\)/g, "")}</p>
-                        ${imageUrl==="None" ? `` : imageUrl ? `<img src="${imageUrl}" alt="Meal Image" class="w-full h-auto mt-4 rounded-lg shadow-md">` : `<p class="text-center text-gray-700 dark:text-gray-300 mt-4">급식 사진이 아직 업로드되지 않았습니다.</p>`}
+                        ${imageUrl==="None" ? `` : imageUrl ? `<Image src="${imageUrl}" alt="Meal Image" class="w-full h-auto mt-4 rounded-lg shadow-md" />` : `<p class="text-center text-gray-700 dark:text-gray-300 mt-4">급식 사진이 아직 업로드되지 않았습니다.</p>`}
                         <button class="copy-menu-button text-blue-500 border border-gray-300 dark:border-gray-600 rounded px-4 py-2 mt-2">메뉴 복사</button>
                     </div>
                 `;
