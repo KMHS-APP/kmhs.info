@@ -93,7 +93,7 @@ export const prerender = true;
           if (response.status === 404) {
             return null;
           }
-          return response.text;
+          return response.text();
         } catch (error) {
           console.error("Error fetching meal image:", error);
           return null;
@@ -120,10 +120,10 @@ export const prerender = true;
         meal: any,
         title: string,
         bgColor: string,
+        imageUrl: string | null,
       ) {
         const container = document.getElementById(containerId) as HTMLElement;
         if (meal) {
-          const imageUrl = await fetchMealImage();
           container.innerHTML = `
                     <div class="max-w-2xl mx-auto mb-4 p-4 ${bgColor} rounded-lg shadow-md">
                         <h2 class="text-2xl font-bold text-center mb-2">${title}</h2>
@@ -131,7 +131,7 @@ export const prerender = true;
                         <p class="cal-info text-gray-700 dark:text-gray-300">&bull; 칼로리: ${meal.CAL_INFO}</p>
                         <hr class="my-2 border-gray-300 dark:border-white">
                         <p class="menu-info text-gray-700 dark:text-gray-300">${meal.DDISH_NM.replace(/<br\/>/g, "<br />").replace(/\(근명\)/g, "")}</p>
-                        ${imageUrl ? `<img src="${imageUrl}" alt="Meal Image" class="w-full h-auto mt-4 rounded-lg shadow-md">` : `<p class="text-center text-gray-700 dark:text-gray-300 mt-4">급식 사진이 아직 업로드되지 않았습니다.</p>`}
+                        ${imageUrl==="None" ? `` : imageUrl ? `<img src="${imageUrl}" alt="Meal Image" class="w-full h-auto mt-4 rounded-lg shadow-md">` : `<p class="text-center text-gray-700 dark:text-gray-300 mt-4">급식 사진이 아직 업로드되지 않았습니다.</p>`}
                         <button class="copy-menu-button text-blue-500 border border-gray-300 dark:border-gray-600 rounded px-4 py-2 mt-2">메뉴 복사</button>
                     </div>
                 `;
@@ -200,18 +200,21 @@ export const prerender = true;
         const tomorrowMeal = meals.find(
           (meal: { MLSV_YMD: string }) => meal.MLSV_YMD === tomorrowString,
         );
+        const imageUrl = await fetchMealImage();
 
         renderMeal(
           "today-meal-container",
           todayMeal,
           "오늘의 급식",
           "bg-yellow-100 dark:bg-[#7999]",
+          imageUrl,
         );
         renderMeal(
           "tomorrow-meal-container",
           tomorrowMeal,
           "내일 급식",
           "bg-green-100 dark:bg-green-800",
+          "None"
         );
         renderMealsList(meals);
 
