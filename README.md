@@ -29,4 +29,3 @@
 #### 문의, 연락
 
 - **Email**: `me@nergis.dev`
-- **Signal**: `Nergis.01`
