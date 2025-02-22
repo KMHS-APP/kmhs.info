@@ -80,7 +80,9 @@ import Layout from "@layouts/Layout.astro";
         <tbody>
           {
             Array.from({ length: 7 }).map((_, i) => (
-            <tr><td class="border p-2">{i + 1}교시</td></tr>
+              <tr>
+                <td class="border p-2">{i + 1}교시</td>
+              </tr>
             ))
           }
         </tbody>
