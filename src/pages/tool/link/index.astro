@@ -1,5 +1,5 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="링크 단축기" description="링크 단축기 페이지입니다.">
@@ -82,7 +82,7 @@ import Layout from "../../../layouts/Layout.astro";
         resultDiv.innerHTML = `단축된 URL: <a href="${data.shortUrl}" class="text-indigo-600 hover:underline">${data.shortUrl}</a>`;
 
         // QR 코드 생성
-        QRCode.toCanvas(qrCanvas, data.shortUrl, function (error) {
+        QRCode.toCanvas(qrCanvas, data.shortUrl, function (error: any) {
           if (error) {
             resultDiv.innerText = `오류: QR 코드 생성 실패`;
             return;

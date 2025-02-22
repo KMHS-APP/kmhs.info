@@ -1,31 +1,48 @@
-# KMHS.INFO
+# Astro Starter Kit: Basics
 
-**근명고등학교** 학생들을 위한 정보형 사이트
+```sh
+npm create astro@latest -- --template basics
+```
 
----
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-## 개발자
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-- Nergis
-- 같이 하실분을 찾고 있습니다 [연락처](https://github.com/KMHS-APP/kmhs.info/blob/main/README.md#%EB%AC%B8%EC%9D%98-%EC%97%B0%EB%9D%BD)
+![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
----
+## 🚀 Project Structure
 
-### 사용 기술
+Inside of your Astro project, you'll see the following folders and files:
 
-- Astro
-- Tailwind CSS
-- CSS
-- TypeScript
-- HTML
-- JavaScript
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-### 배포 기술
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-- Cloudflare Pages
+## 🧞 Commands
 
----
+All commands are run from the root of the project, from a terminal:
 
-#### 문의, 연락
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-- **Email**: `me@nergis.dev`
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

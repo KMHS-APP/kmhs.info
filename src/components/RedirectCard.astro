@@ -6,7 +6,7 @@ interface Props {
   title: string;
   description: string;
   link: string;
-  type: "tool";
+  type: "url" | "instar" | "youtube" | "tool";
 }
 
 const { title, description, link, type } = Astro.props;
@@ -14,6 +14,7 @@ const { title, description, link, type } = Astro.props;
 
 <a
   href={link}
+  target="_blank"
   class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transform transition-transform hover:scale-105"
 >
   <h5
@@ -21,6 +22,30 @@ const { title, description, link, type } = Astro.props;
   >
     {title}
   </h5>
+  {
+    type === "instar" && (
+      <div class="flex items-center mb-2">
+        <Icon name="mdi:instagram" class="w-6 h-6 mr-2 text-pink-500" />
+        <span class="text-gray-700 dark:text-gray-400">Instagram</span>
+      </div>
+    )
+  }
+  {
+    type === "url" && (
+      <Icon
+        name="mdi:link-box-variant-outline"
+        class="w-6 h-6 inline-block mb-1 text-gray-500 dark:text-gray-400"
+      />
+    )
+  }
+  {
+    type === "youtube" && (
+      <div class="flex items-center mb-2">
+        <Icon name="mdi:youtube" class="w-6 h-6 mr-2 text-red-500" />
+        <span class="text-gray-700 dark:text-gray-400">YouTube</span>
+      </div>
+    )
+  }
   {
     type === "tool" && (
       <Icon

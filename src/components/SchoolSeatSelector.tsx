@@ -165,7 +165,7 @@ const SchoolSeatSelector: React.FC = () => {
 
       {/* 자리 배치 캔버스 */}
       <div
-        className="grid gap-2 outline outline-2 outline-black p-3 rounded-lg"
+        className="grid gap-2 outline outline-black p-3 rounded-lg"
         style={{
           gridTemplateColumns: `repeat(${columns}, 100px)`,
           gridAutoRows: "100px",

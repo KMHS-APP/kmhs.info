@@ -1,5 +1,5 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -58,7 +58,7 @@ import { Icon } from "astro-icon/components";
       const loadingIcon = document.getElementById("loadingIcon");
       if (!(fileInput instanceof HTMLInputElement)) {
         if (statusMessage) {
-          statusMessage.textContent = "파일 입력 요소를 찾을 수 없��니다.";
+          statusMessage.textContent = "파일 입력 요소를 찾을 수 없습니다.";
         }
         return;
       }
