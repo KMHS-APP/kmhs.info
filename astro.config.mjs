@@ -45,7 +45,17 @@ export default defineConfig({
     }
   })],
 
+  site: "https://kmhs.info",
+
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    resolve: {
+      alias:
+        process.env.NODE_ENV === 'production'
+          ? {
+              'react-dom/server': 'react-dom/server.edge',
+            }
+          : undefined,
+    },
   }
 });
