@@ -13,7 +13,10 @@
 	"observability": {
 		"enabled": true
 	},
-  "placement": { "mode": "smart" }
+  "placement": { "mode": "smart" },
+  "ai": {
+    "binding": "AI"
+  }
   
   /**
    * Bindings

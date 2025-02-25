@@ -8,6 +8,10 @@
         "name": "@astrojs/ts-plugin"
       }
     ],
+    "types": [
+        "@cloudflare/workers-types",
+        "./worker-configuration.d.ts"
+    ],
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["src/assets/*"],

@@ -3,11 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro build && wrangler pages dev",
+    "dev": "wrangler types && astro dev",
+    "build": "wrangler types && astro build",
+    "preview": "wrangler types && astro build && wrangler pages dev",
     "astro": "astro",
-    "deploy": "astro build && wrangler pages deploy",
+    "deploy": "wrangler types && astro build && wrangler pages deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
@@ -35,16 +35,19 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "stylelint-config-html": "^1.1.0",
-    "tailwindcss": "^4.0.8"
+    "tailwindcss": "^4.0.8",
+    "workers-ai-provider": "^0.1.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250214.0",
-    "wrangler": "^3.109.2",
+    "@cloudflare/workers-types": "^4.20250224.0",
     "@eslint/js": "^9.21.0",
     "@types/bun": "latest",
+    "@types/node": "^22.13.5",
+    "cross-env": "^7.0.3",
     "eslint": "^9.21.0",
     "globals": "^16.0.0",
-    "typescript-eslint": "^8.24.1"
+    "typescript-eslint": "^8.24.1",
+    "wrangler": "^3.109.2"
   },
   "private": true,
   "peerDependencies": {
