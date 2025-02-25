@@ -15,7 +15,7 @@ export const POST: APIRoute = async ({ locals, request }) => {
             { role: "user", content },
         ];
 
-        const output = await AI.run("@cf/google/gemma-7b-it-lora", {
+        const output = await AI.run("@cf/deepseek-ai/deepseek-r1-distill-qwen-32b", {
             messages,
             stream: false,
         });
