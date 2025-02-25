@@ -86,7 +86,7 @@ import { Icon } from "astro-icon/components";
         loadingIcon.classList.remove("hidden");
       }
 
-      const url = `https://file.kmhs.info/${file.name}`;
+      const url = `/api/s3`;
       try {
         const response = await fetch(url, {
           method: "PUT",
