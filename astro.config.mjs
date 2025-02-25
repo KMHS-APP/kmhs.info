@@ -9,8 +9,6 @@ import icon from "astro-icon";
 
 import tailwindcss from "@tailwindcss/vite";
 
-import db from "@astrojs/db";
-
 // https://astro.build/config
 export default defineConfig({
   output: "server",
@@ -43,7 +41,7 @@ export default defineConfig({
       "icon-park-twotone": ["degree-hat"],
       "fluent-emoji-high-contrast": ["fork-and-knife-with-plate"],
     },
-  }), db()],
+  })],
 
   site: "https://kmhs.info",
 

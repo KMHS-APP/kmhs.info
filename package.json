@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.2.1",
-    "@astrojs/db": "^0.14.6",
     "@astrojs/react": "^4.2.0",
     "@astrojs/ts-plugin": "^1.10.4",
     "@aws-sdk/client-s3": "^3.750.0",
